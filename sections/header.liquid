@@ -2,7 +2,7 @@
 <div class="text-[var]"></div>
 <header id="site-header" class="efemedia-blue w-full py-3 border-b border-[#ffffff36] absolute z-50 text-[var(--color-white)] overflow-hidden">
     <div class="header-wrapper w-screen max-w-[1320px] mx-auto flex justify-between items-center px-5">
-        <nav class="flex-1 hidden md:block">
+        <nav class="flex-1 hidden md:block" aria-label="Main menu">
             <ul class="flex flex-inline flex-wrap">
                   {% for link in linklists.main-menu.links %}
                     <li>
@@ -23,17 +23,22 @@
             </a>
         </div>
         <div class="header-icons flex flex-1 gap-2 justify-end items-center">
-            <a class="p-2 hidden md:flex" href="">{% render 'icon-magnifying-glass' %}</a>
-            <a class="p-2 hidden md:flex" href="">{%  render 'icon-user'%}</a>
-            <a class="p-2 hidden md:flex" href="{{  routes.cart_url }}">{% render 'icon-shopping-bag' %}</a>
+            <a class="p-2 hidden md:flex" href="" aria-label="Account">{%  render 'icon-user'%}</a>
+            <a class="p-2 hidden md:flex" aria-label="Cart" href="{{  routes.cart_url }}">{% render 'icon-shopping-bag' %}</a>
             <div class="header-drawer text-white md:hidden">
-                <div id="menu-toggle">{% render 'icon-menu' %}</div>
-                <div id="menu-mobile" class="menu-mobile hidden w-screen fixed left-0 top-0 h-fit text-black bg-white p-5 rounded-bl-3xl rounded-br-3xl overflow-hidden shadow-2xl">
+                <div id="menu-toggle" aria-label="Open main menu">{% render 'icon-menu' %}</div>
+                <div id="menu-mobile" class="menu-mobile hidden w-screen fixed left-0 top-0 h-fit text-black bg-white p-5 py-10 rounded-bl-3xl rounded-br-3xl overflow-hidden shadow-2xl">
                     <nav class="w-full">
-                            <ul class="flex flex-col gap-4 border-b pb-4 border-[rgba(0,0,0,.2)] mb-4">
+                        <div class="menu-mobile__logo pb-8 mb-5 border-b border-[rgba(0,0,0,.05)]">
+                            {% if settings.logo_black_image != blank %}
+                                <img class=" w-full max-w-[160px]" src="{{ settings.logo_black_image | image_url }}" loading="eager" alt="{{ settings.logo_alt }}">
+                            
+                            {% endif %}
+                        </div>
+                            <ul class="flex flex-col gap-4 border-b pb-4 border-[rgba(0,0,0,.05)] mb-4">
                                 {% for link in linklists.main-menu.links %}
                                     <li>
-                                        <a class="py-3 text-lg hover:underline text-[var(--color-black)] underline-offset-4" href="{{ link.url }}">{{ link.title }}</a>
+                                        <a class="py-3 text-lg hover:underline text-[var(--color-gray)] underline-offset-4" href="{{ link.url }}">{{ link.title }}</a>
                                     </li>
                                 {% endfor %} 
                             </ul>

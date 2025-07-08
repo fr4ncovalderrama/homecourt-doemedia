@@ -1,30 +1,37 @@
 
 {%- assign image = section.settings.image -%}
+{% assign image_mobile = section.settings.image_mobile %}
 
-<div class="hero h-[857px] relative pt-20">
+<div class="hero h-[750px] md:h-[857px]  m-auto relative pt-20">
     <div class="hero__media w-full h-full absolute left-0 top-0 z-[-1]
-         before:absolute before:inset-0 before:bg-gradient-to-b before:from-black before:to-transparent before:z-[0] before:opacity-40">
+         before:absolute before:w-full before:h-[50%] before:bg-gradient-to-b before:from-[#5C4A34] before:mix-blend-multiply before:to-transparent before:z-[0] before:opacity-40">
          {% if image != blank %}
-            {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-bottom', loading: 'eager' }}
+            {{ image | image_url: width: image.width | image_tag: class: 'hidden md:flex w-full h-full object-cover object-bottom', loading: 'eager' }}
          {% else %}
             <div class="placeholder bg-gray-200 w-full h-full"> 
                 {%  render 'image-placeholder', class="w-full h-full object-top object-cover" %}
             </div>
          {% endif %}
+         {% if image_mobile != blank %}
+            {{ image_mobile | image_url: width: image_mobile.width | image_tag: class: 'w-full h-full object-cover object-bottom md:hidden', loading: 'eager' }}
+         {% endif %}
 
     </div>
-    <div class="hero-wrapper w-full max-w-5xl mx-auto flex flex-col justify-center items-center z-10 text-white  py-15 px-2">
+    <div class="hero-wrapper w-full max-w-5xl mx-auto flex flex-col justify-center items-center z-10 text-white  py-15 px-4">
         {%- for block in section.blocks -%}
             {%- case block.type -%}
         {%- when 'legend' -%}
             <p class="text-lg fade-in-up text-[var(--color-white)] leading-[15px] uppercase mb-5">{{block.settings.legend}}</p>
         {%- when 'title' -%}
-            <h2 class="w-full fade-in-up text-[64px] leading-[64px] lg:text-[90px] lg:leading-[110px] text-[var(--color-white)] text-center uppercase mb-4">{{ block.settings.title | strip_html}}</h2>
+            <h2 class="w-full fade-in-up text-[60px] leading-[60px] lg:text-[90px] lg:leading-[110px] text-[var(--color-white)] text-center uppercase mb-4">{{ block.settings.title | strip_html}}</h2>
         {%- when 'description' -%}
             <p class="text-center fade-in-up text-base text-[var(--color-white)] leading[21px] max-w-3xl mb-8">{{ block.settings.description | strip_html }}</p>
         {%- when 'button' -%}
             <div class="buttons text-black fade-in-up">
-                <a class="flex bg-[var(--bg-white)] hover:scale-102 transition py-4 px-11 uppercase text-lg" href="{{ block.settings.link }}">{{  block.settings.label}}</a>
+                <a class="flex bg-[var(--bg-white)] border border-white  transition-all duration-300 py-[12px] px-11 uppercase text-lg
+                 hover:bg-[#FFFFFF21]  hover:shadow-2xl hover:backdrop-blur-[5px] hover:text-[var(--color-white)]"href="{{ block.settings.link }}">
+                 {{  block.settings.label}}
+                </a>
             </div>
             {%- endcase -%}
         {%- endfor -%}
@@ -49,7 +56,12 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image for Mobile"
     }
   ],
   "blocks": [

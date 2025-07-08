@@ -11,11 +11,9 @@
 {% if card_product.compare_at_price > card_product.price %}
   {% assign discount = card_product.compare_at_price | minus: card_product.price %}
   {% assign discount_percent = discount | times: 100 | divided_by: card_product.compare_at_price | round %}
-
 {% endif %}
 
 {% assign reviews_count = 43 %}
-
  <li class="card relative group">
     <span class="badge bg-[#FFFFFF21] font-bold tracking-[0.03em] text-white text-[15px] px-3 py-1.5 absolute top-2.5 left-2.5 z-20 border border-white/8 backdrop-blur-[4px]">
         SAVE {{ discount_percent }}%
@@ -26,8 +24,9 @@
         {% else %}
             {{ 'image' | placeholder_svg_tag }}
         {% endif %}
-        <div class="card__buttons p-2.5 font-bold w-full opacity-0 absolute transition-all duration-300 delay-100 bottom-0 z-10 translate-y-4 group-hover:block group-hover:translate-y-0 group-hover:opacity-100">
-            <a class="w-full py-4 px-11 bg-white text-black uppercase block text-center justify-center" href="#">Add to cart</a>
+        <div class="card__buttons p-2.5 font-bold w-full opacity-0 absolute transition-all duration-300 delay-100 bottom-0 z-20 translate-y-4 group-hover:block group-hover:translate-y-0 group-hover:opacity-100">
+            <a id="add-to-cart" class="add-to-cart w-full py-4 px-11 bg-white text-black border border-white uppercase block text-center justify-center z-20
+                hover:bg-[#FFFFFF21]  hover:shadow-xs backdrop-blur-[2px] hover:text-[var(--color-white)] transition-all duration-300" href="#">Add to cart</a>
         </div>
     </div>
     <div class="card__content">
@@ -46,5 +45,5 @@
         </div>
     </div>
 
-     <a href="{{ card_product.url }}" class="absolute inset-0 z-20" aria-label="{{ product.title }}"><span class="sr-only">{{ product.title }}</span></a>
+     <a href="{{ card_product.url }}" class="absolute inset-0 z-10" aria-label="{{ product.title }}"><span class="sr-only">{{ product.title }}</span></a>
 </li>

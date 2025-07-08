@@ -1,7 +1,7 @@
 
 {% assign image = section.settings.image %}
 
-<div class="image-banner relative max-h-[566px] min-h-[566px]  flex items-center text-white
+<div class="image-banner relative max-h-[566px] min-h-[566px] flex items-center text-white
   after:content-[''] after:absolute after:inset-0 after:bg-[var(--bg-foreground)] after:opacity-70 after:mix-blend-multiply md:after:hidden">
     <div class="image-banner__media absolute flex w-full h-full z-[-1]">
         {% if image != blank %}
@@ -10,20 +10,21 @@
             <div class="placeholder bg-gray-200 w-full h-full"></div>
         {% endif %}
     </div>
-    <div class="w-full max-w-[1360px]  px-4 md:px-6 lg:px-[20px] mx-auto flex items-center">
+    <div class="w-full max-w-[1360px]  px-5 md:px-6 lg:px-[20px] mx-auto flex items-center">
       <div class="w-full image-banner__content z-1 max-w-3xl ">
           {%- for block in section.blocks -%}
               {%- case block.type -%}
                   {%- when 'legend' -%}
-                    <p class="text-lg leading-[15px] text-[var(--color-white)] uppercase mb-7 fade-in-up">{{ block.settings.legend }} </p>
+                    <p class="text-center md:text-left text-lg leading-[15px] text-[var(--color-white)] uppercase mb-7 fade-in-up">{{ block.settings.legend }} </p>
                   {%- when 'title' -%}
-                    <h2 class="text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-balance text-[var(--color-white)] uppercase mb-8 fade-in-up">{{ block.settings.title }}</h2>
+                    <h2 class="text-center md:text-left text-[42px] leading-[42px] lg:text-[70px] lg:leading-[70px] text-balance text-[var(--color-white)] uppercase mb-8 fade-in-up">{{ block.settings.title }}</h2>
                   {%- when 'description' -%}
-                    <p class="description txt-lg leading-6 mb-8 text-[var(--color-white)] opacity-80 text-balance fade-in-up">{{ block.settings.description | strip_html }}</p>
-    
+                    <p class="text-center md:text-left description txt-lg leading-6 mb-8 text-[var(--color-white)] opacity-80 text-balance fade-in-up">{{ block.settings.description | strip_html }}</p>
+  
                   {%- when 'button' -%}
-                    <div class="buttons fade-in-up ">
-                      <a class="inline-flex py-4 px-11 bg-[var(--bg-white)] text-[var(--color-black)] font-bold uppercase hover:scale-102 transition" href="{{ block.settings.button_link }}">{{ block.settings.button_label }} </a>
+                    <div class="buttons fade-in-up flex justify-center md:block ">
+                      <a class="bg-[var(--bg-white)] text-[var(--color-black)] border border-white  transition-all duration-300 py-[12px] px-11 uppercase text-lg
+                 hover:bg-[#FFFFFF21]  hover:shadow-2xl hover:backdrop-blur-[5px] hover:text-[var(--color-white)]" href="{{ block.settings.button_link }}">{{ block.settings.button_label }} </a>
                     </div>
                   
 

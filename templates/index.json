@@ -37,7 +37,8 @@
       ],
       "name": "Hero Section",
       "settings": {
-        "image": "shopify:\/\/shop_images\/scent-with-intention.webp"
+        "image": "shopify:\/\/shop_images\/scent-with-intention.webp",
+        "image_mobile": "shopify:\/\/shop_images\/scent-with-intention_mobile.webp"
       }
     },
     "process_cjre86": {

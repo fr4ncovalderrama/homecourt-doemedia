@@ -1,18 +1,18 @@
-<div class="process max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] grid lg:grid-cols-2 gap-5 py-12 md:py-24 md:grid-cols-1">
-    <div class="process__media bg-gray-200">
+<div class="process max-w-[1360px] mx-auto  grid md:grid-cols-1 lg:grid-cols-2 gap-5 py-12 md:py-24  px-5 md:px-6 lg:px-[20px] ">
+    <div class="process__media bg-gray-200 overflow-hidden">
         {% if section.settings.image != blank %}
-            {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: 'block w-full h-full group-hover:scale-105 transition duration-300 z-0', loading: 'lazy' }}
+            {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: 'block w-full h-full hover:scale-105 transition duration-300 z-0', loading: 'lazy' }}
         {% else %}
             {{ 'image' | placeholder_svg_tag }}
         {% endif %}
     </div>
     <div class="process__content  lg:pl-6">
-        <div class="headings mb-7">
-            <p class="legend fade-in-up text-lg leading-[15px] uppercase mb-7 text-[var(--color-darkgray)]">{{ section.settings.legend }}</p>
-            <h2 class="fade-in-up text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase mb-6">{{ section.settings.title }}</h2>
-            <p class="fade-in-up text-lg leading-[22px] text-balance">{{ section.settings.text }}</p>
+        <div class="headings mb-12 md:mb-7 mt-4 md:mt-0">
+            <p class="legend fade-in-up text-center md:text-left text-lg leading-[15px] uppercase mb-7 text-[var(--color-darkgray)]">{{ section.settings.legend }}</p>
+            <h2 class="fade-in-up text-center md:text-left text-balance text-[42px] leading-[42px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)]  mb-6">{{ section.settings.title }}</h2>
+            <p class="fade-in-up text-center md:text-left text-lg leading-[22px] text-balance">{{ section.settings.text }}</p>
         </div>
-        <ul class="process__list mb-14 flex flex-col gap-7">
+        <ul class="process__list mb-14 flex flex-col gap-7 px-5 md:px-0">
                 {%- for block in section.blocks -%}
                     {%- case block.type -%}
                         {%- when 'step' -%}
@@ -36,7 +36,8 @@
 
         </ul>
         <div class="buttons fade-in-up">
-            <a class="inline-flex text-lg leading-[21px] font-bold py-4 px-11 bg-[var(--color-foreground)] text-[var(--color-white)] uppercase hover:scale-102 transition" href="{{ section.settings.link }}">Inquire Now</a>
+            <a class="flex justify-center text-center md:inline-flex bg-[var(--color-foreground)] text-[var(--color-white)] text-lg leading-[21px] font-bold py-[12px] px-11 border border-[var(--color-foreground)]
+              uppercase transition-all duration-300 hover:bg-transparent hover:text-[var(--color-foreground)]" href="{{ section.settings.link }}">Inquire Now</a>
         </div>
     </div>
 </div>

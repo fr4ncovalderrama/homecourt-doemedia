@@ -8,8 +8,8 @@
         {% endif %}
         
     </div>
-    <div class="customer-reviews__header w-full max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] flex justify-between items-center md:items-end mb-14 flex-col lg:flex-row gap-4">
-        <div class="headings text-white max-w-3xl w-f ">
+    <div class="customer-reviews__header w-full max-w-[1360px] mx-auto  px-4 md:px-6 lg:px-[20px] flex gap-8 justify-between items-center md:items-end mb-14 flex-col lg:flex-row ">
+        <div class="headings text-white max-w-3xl">
             <p class="text-lg leading-[15px] uppercase mb-7 text-center md:text-left fade-in-up">{{ section.settings.legend }}</p>
             <h2 class="text-[58px] leading-[58px] lg:text-[70px] lg:leading-[70px] text-center md:text-left text-balance uppercase fade-in-up">{{ section.settings.title | default: "Write a standout title." | strip_html}}</h2>
         </div>
@@ -59,7 +59,9 @@
     </div>
     <div class="customer-reviews__footer max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] mt-11 z-10 fade-in-up">
         <div class="buttons flex justify-center  z-10">
-            <a href="{{ section.settings.link }}" class="text-lg font-bold text-[var(--color-foreground)] py-4 px-11 bg-[var(--bg-white)] uppercase hover:scale-102 transition">SEE ALL REVIEWS</a>
+            <a href="{{ section.settings.link }}"
+              class="bg-[var(--bg-white)] text-[var(--color-foreground)] font-bold border border-white  transition-all duration-300 py-[12px] px-11 uppercase text-lg
+                 hover:bg-[#FFFFFF21]  hover:shadow-2xl hover:backdrop-blur-[5px] hover:text-[var(--color-white)]">SEE ALL REVIEWS</a>
             
         </div>
     </div>

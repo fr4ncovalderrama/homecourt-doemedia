@@ -1,11 +1,11 @@
 
 {% assign image = section.settings.image %}
 
-<div class="featured-testimonial  max-w-[1360px] mx-auto 4 px-4 md:px-6 lg:px-[20px] py-12 md:py-24 ">
+<div class="featured-testimonial  max-w-[1360px] mx-auto px-5 md:px-6 lg:px-[20px] py-12 md:py-24 ">
     <div class="featured-testimonial__grid flex gap-7 md:gap-14 flex-col lg:flex-row">
-        <div class="featured-testimonial__media w-full lg:max-w-[490px]">
+        <div class="featured-testimonial__media w-full lg:max-w-[490px] overflow-hidden">
             {% if section.settings.image != blank %}
-              {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-right', loading: 'lazy' }}
+              {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-right hover:scale-[1.02] transition-all duration-300 ease', loading: 'lazy' }}
             {% else %}
             <div class="placeholder bg-gray-100 w-full h-full"></div>
             {% endif %}
@@ -15,7 +15,8 @@
                 {% render 'icon-open-quotes' %}
             </div>
                   <p class="text-lg leading-[15px] uppercase mb-7 fade-in-up">{{ section.settings.legend | default: 'EXAMPLE LEGEND'}}</p>
-                  <h2 class="heading-italic text-3xl mb-6 text-[var(--color-darkgray)] fade-in-up">"{{ section.settings.quote | default: 'Lorem impsum dolor sit amet' | strip_html}}"</h2> 
+                  <p class="heading-italic text-[24px] smd:text-3xl mb-6 text-[var(--color-darkgray)] fade-in-up">"{{ section.settings.quote | default: 'Lorem impsum dolor sit amet' | strip_html}}"</p> 
+
                   <p class="text-lg leading-6 fade-in-up">{{ section.settings.description | strip_html }}</p>
             <div class="quotes-icon relative gap-10 h-auto flex items-center my-9 before:content-[''] before:block before:w-full  before:h-[1px] before:bg-[#DDDDDD] fade-in-up">
               {% render 'icon-open-quotes', custom_class:'rotate-180'%}

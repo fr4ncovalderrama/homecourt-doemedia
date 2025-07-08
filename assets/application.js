@@ -45,3 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   elements.forEach((el) => observer.observe(el));
 });
+
+document.querySelectorAll(".add-to-cart").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log("Add to cart clicked:", this);
+    // You can access variant ID from data attributes if needed
+  });
+});

@@ -1,7 +1,7 @@
-<div class="value-proposition max-w-[1360px] mx-auto pb-24 px-4 md:px-6 lg:px-[20px]">
+<div class="value-proposition max-w-[1360px] mx-auto pb-24 pt-5 md:pt-0 px-5 md:px-6 lg:px-[20px]">
         <div class="headings mb-7 max-w-[750px] text-balance">
-            <p class="fade-in-up text-lg leading-[15px] text-[var(--color-darkgray)] uppercase mb-7">{{ section.settings.legend }}</p>
-            <h2 class="fade-in-up text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase">{{  section.settings.title  }}</h2>
+            <p class="text-center md:text-left fade-in-up text-lg leading-[15px] text-[var(--color-darkgray)] uppercase mb-7">{{ section.settings.legend }}</p>
+            <h2 class="text-center md:text-left text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase fade-in-up">{{  section.settings.title  }}</h2>
         </div>
     <ul class="value-proposition__list grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       {%- for block in section.blocks -%}
@@ -11,14 +11,14 @@
           <li class="card group fade-in-up">
               <div class="card__media aspect-[312/344] bg-gray-100 mb-5 overflow-hidden">
                   {% if block.settings.image != blank %}
-                      {{ image | image_url: width: image.width | image_tag: class: 'block w-full group-hover:scale-105 transition duration-300', loading: 'lazy' }}
+                      {{ image | image_url: width: image.width | image_tag: class: 'block w-full group-hover:scale-105 transition duration-300 ease-in-out', loading: 'lazy' }}
                   {% else %}
                       {{ 'image' | placeholder_svg_tag }}
                   {% endif %}
               </div>
               <div class="card__content">
-                  <h3 class="secondary-heading text-[22px] leading-[27px] text-[var(--color-black)] mb-5"> {{ block.settings.title }} </h3>
-                  <p class="text-lg leading-[22px] color-gray">{{ block.settings.text }} </p>
+                  <h3 class="secondary-heading text-[22px] leading-[27px] text-[var(--color-black)] group-hover:text-[var(--color-foreground)] mb-5"> {{ block.settings.title }} </h3>
+                  <p class="text-[17px] leading-[22px] color-gray">{{ block.settings.text }} </p>
               </div>
             </li>
         {%- endcase -%}
