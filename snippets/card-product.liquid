@@ -33,7 +33,8 @@
     <div class="card__content">
         <div class="headings flex justify-between items-end gap-4 border-b border-[#DDDDDD] pb-3">
             <h3 class="secondary-heading text-xl text-[var(--color-black)] max-w-[70%] text-balance "> {{card_product.title | default: "Example product title"}} </h3>
-            <p class="text-[var(--color-gray)]">{{ card_product.price | default: 20  | money}} </p>
+            <p class="text-[var(--color-gray)]">{{ card_product.price | default: 20  | money_without_trailing_zeros}} </p>
+
         </div>
         <div class="reviews flex mt-3">
             <div class="reviews-stars flex">
