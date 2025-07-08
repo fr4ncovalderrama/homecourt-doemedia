@@ -1,0 +1,116 @@
+{% assign image = section.settings.background_image %}
+
+<div class="footer relative w-full overflow-hidden">
+    <div class="footer__media absolute w-full h-full after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-br after:from-black after:to-transparent after:pointer-events-none z-[-1] after:opacity-70">
+        {% if image != blank %}
+            {{ image | image_url: width: image.width | image_tag: class: ' object-cover pointer-events-none  w-full h-full ', loading: 'lazy' }}
+        {% endif %}
+        
+    </div>
+
+    <div class="footer__wrapper w-full flex gap-12 lg:gap-24 max-w-[1360px] mx-auto  px-4 md:px-6 lg:px-[20px] py-14  justify-between flex-col lg:flex-row">
+        <div class="footer__content col-span-7 text-[var(--color-white)]">
+            <p class="text-lg leading-[15px] uppercase mb-7 fade-in-up">{{ section.settings.legend | default: 'EXAMPLE LEGEND'}}</p>
+            <h2 class="text-[64px] leading-[64px] lg:text-[110px] lg:leading-[110px] text-balance mb-6 fade-in-up">{{section.settings.title }}</h2> 
+            <p class="text-lg leading-6 fade-in-up">{{ section.settings.description | default: "Write a title that stands out" | strip_html }}</p>
+        </div>
+        <div class="footer__form px-10 py-11 bg-[var(--bg-white)] lg:min-w-[592px] fade-in-up">
+            <form method="post" action="/contact#inquiry_form" id="inquiry_form" class="flex flex-col gap-5 md:grid md:grid-cols-2 md:gap-5 ">
+                <div class="flex flex-col">
+                    <label for="first_name" class="w-full text-base font-bold uppercase text-[var(--color-darkgray)]">First Name*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="text" id="first_name" name="contact[first_name]" placeholder="Enter your first name" required>
+                </div>
+                <div class="flex flex-col">
+                    <label for="last_name" class="text-base block font-bold uppercase text-[var(--color-darkgray)]">Last Name*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="text" id="last_name" name="contact[last_name]" placeholder="Enter your last name" required>
+                </div>
+
+
+                <div>
+                    <label for="company_name" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Company Name*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="text" id="company_name" name="contact[company_name]" placeholder="Enter company name" required>
+                </div>
+                <div>
+                    <label for="email" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Email Address*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="email" id="email" name="contact[email]" placeholder="Enter your email address" required>
+                </div>
+
+
+                <div>
+                    <label for="phone" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Phone Number*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="tel" id="phone" name="contact[phone]" placeholder="Enter your phone number" required>
+                </div>
+                <div>
+                    <label for="product_type" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Product Type*</label>
+                    <select class="w-full py-3.5 border-b border-b-[#00000066]" id="product_type" name="contact[product_type]" required>
+                    <option value="">Please select</option>
+                    <option value="Product A">Product A</option>
+                    <option value="Product B">Product B</option>
+                    <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-span-2">
+                    <p class="text-lg uppercase">Delivery Window</p>
+                </div>
+                <div>
+                    <label for="earliest_date" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Earliest Date*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="date" id="earliest_date" name="contact[earliest_date]" required>
+                </div>
+                <div>
+                    <label for="latest_date" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Latest Date*</label>
+                    <input class="w-full py-3.5 border-b border-b-[#00000066]" type="date" id="latest_date" name="contact[latest_date]" required>
+                </div>
+
+                <div class="col-span-2 flex flex-col">
+                    <label for="message" class="text-base font-bold uppercase text-[var(--color-darkgray)]">Additional Notes</label>
+                    <textarea id="message"class="py-3.5 border-b border-b-[#00000066]" name="contact[body]" rows="2" placeholder="Tell us more about what you are looking for"></textarea>
+                </div>
+
+
+                <div class="col-span-2">
+                    <button type="submit" class="text-lg font-bold text-[var(--color-white)] inline-flex py-4 px-11 bg-[var(--bg-foreground)] uppercase hover:scale-102 transition">Inquire Now</button>
+                    
+                </div>
+                </form>
+
+        </div>
+        
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Footer",
+   "settings": [
+    {
+      "type": "image_picker",
+      "label": "Background Image",
+      "id": "background_image"
+    },
+    {
+      "type": "text",
+      "label": "Legend",
+      "id": "legend",
+      "default": "Example Legend"
+    },
+    {
+      "type": "inline_richtext",
+      "label": "Title",
+      "id": "title"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

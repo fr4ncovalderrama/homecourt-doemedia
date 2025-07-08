@@ -1,0 +1,58 @@
+{%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+<div class="text-[var]"></div>
+<header id="site-header" class="w-screen py-3 border-b border-[#ffffff36] absolute z-50 text-[var(--color-white)] overflow-hidden">
+    <div class="header-wrapper w-screen max-w-[1320px] mx-auto flex justify-between items-center px-5">
+        <nav class="flex-1 hidden md:block">
+            <ul class="flex flex-inline flex-wrap">
+                  {% for link in linklists.main-menu.links %}
+                    <li>
+                        <a class="p-3 text-sm hover:underline underline-offset-4" href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                {% endfor %} 
+            </ul>
+            
+        </nav>
+        <div class="logo flex flex-1 flex-grow justify-center">
+            <a href="{{ routes.root_url }}"> 
+                {% if settings.logo_image != blank %}
+                    <img class=" w-full max-w-[190px]" src="{{ settings.logo_image | image_url }}" loading="eager" alt="{{ settings.logo_alt }}">
+                {% else %}
+                    <h1>{{ shop.name }}</h1>
+                {% endif %}
+                
+            </a>
+        </div>
+        <div class="header-icons flex flex-1 gap-2 justify-end items-center">
+            <a class="p-2 hidden md:flex" href="">{% render 'icon-magnifying-glass' %}</a>
+            <a class="p-2 hidden md:flex" href="">{%  render 'icon-user'%}</a>
+            <a class="p-2 hidden md:flex" href="{{  routes.cart_url }}">{% render 'icon-shopping-bag' %}</a>
+            <div class="header-drawer text-white md:hidden">
+                <div id="menu-toggle">{% render 'icon-menu' %}</div>
+                <div id="menu-mobile" class="menu-mobile hidden w-screen fixed left-0 top-0 h-fit text-black bg-white p-5 rounded-bl-3xl rounded-br-3xl overflow-hidden shadow-2xl">
+                    <nav class="w-full">
+                            <ul class="flex flex-col gap-4 border-b pb-4 border-[rgba(0,0,0,.2)] mb-4">
+                                {% for link in linklists.main-menu.links %}
+                                    <li>
+                                        <a class="py-3 text-lg hover:underline text-[var(--color-black)] underline-offset-4" href="{{ link.url }}">{{ link.title }}</a>
+                                    </li>
+                                {% endfor %} 
+                            </ul>
+                            
+                            <div class="header-icons flex flex-1 justify-start">
+                                <a href="{{ routes.account_url }}" class="flex gap-2 py-3 text-lg hover:underline text-[var(--color-gray)] underline-offset-4">Login {%  render 'icon-user'%} </a>
+                            </div>
+                        
+                    </nav>
+                    <div id="close-menu" class="absolute right-4 top-4 bg-gray-100 p-2 rounded-4xl">
+                        {% render 'icon-close' %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</header>
+
+
+

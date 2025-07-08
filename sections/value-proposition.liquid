@@ -1,0 +1,81 @@
+<div class="value-proposition max-w-[1360px] mx-auto pb-24 px-4 md:px-6 lg:px-[20px]">
+        <div class="headings mb-7 max-w-[750px] text-balance">
+            <p class="fade-in-up text-lg leading-[15px] text-[var(--color-darkgray)] uppercase mb-7">{{ section.settings.legend }}</p>
+            <h2 class="fade-in-up text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase">{{  section.settings.title  }}</h2>
+        </div>
+    <ul class="value-proposition__list grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'column' -%}
+            {%- assign image = block.settings.image -%}
+          <li class="card group fade-in-up">
+              <div class="card__media aspect-[312/344] bg-gray-100 mb-5 overflow-hidden">
+                  {% if block.settings.image != blank %}
+                      {{ image | image_url: width: image.width | image_tag: class: 'block w-full group-hover:scale-105 transition duration-300', loading: 'lazy' }}
+                  {% else %}
+                      {{ 'image' | placeholder_svg_tag }}
+                  {% endif %}
+              </div>
+              <div class="card__content">
+                  <h3 class="secondary-heading text-[22px] leading-[27px] text-[var(--color-black)] mb-5"> {{ block.settings.title }} </h3>
+                  <p class="text-lg leading-[22px] color-gray">{{ block.settings.text }} </p>
+              </div>
+            </li>
+        {%- endcase -%}
+      {%- endfor -%}
+    </ul>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Value Proposition",
+  "max_blocks": 4,
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "legend",
+      "label": "Legend"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Column",
+      "type": "column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value proposition"
+    }
+  ]
+}  
+{% endschema %}

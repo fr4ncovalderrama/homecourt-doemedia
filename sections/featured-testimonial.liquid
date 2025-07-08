@@ -1,0 +1,76 @@
+
+{% assign image = section.settings.image %}
+
+<div class="featured-testimonial  max-w-[1360px] mx-auto 4 px-4 md:px-6 lg:px-[20px] py-12 md:py-24 ">
+    <div class="featured-testimonial__grid flex gap-7 md:gap-14 flex-col lg:flex-row">
+        <div class="featured-testimonial__media w-full lg:max-w-[490px]">
+            {% if section.settings.image != blank %}
+              {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-right', loading: 'lazy' }}
+            {% else %}
+            <div class="placeholder bg-gray-100 w-full h-full"></div>
+            {% endif %}
+        </div>
+        <div class="featured-testimonial__content flex flex-col">
+            <div class="quotes-icon relative gap-10 h-auto flex items-center mb-8 after:content-[''] after:block after:w-full after:max-w-[529px] after:h-[1px] after:bg-[#DDDDDD]fade-in-up">
+                {% render 'icon-open-quotes' %}
+            </div>
+                  <p class="text-lg leading-[15px] uppercase mb-7 fade-in-up">{{ section.settings.legend | default: 'EXAMPLE LEGEND'}}</p>
+                  <h2 class="heading-italic text-3xl mb-6 text-[var(--color-darkgray)] fade-in-up">"{{ section.settings.quote | default: 'Lorem impsum dolor sit amet' | strip_html}}"</h2> 
+                  <p class="text-lg leading-6 fade-in-up">{{ section.settings.description | strip_html }}</p>
+            <div class="quotes-icon relative gap-10 h-auto flex items-center my-9 before:content-[''] before:block before:w-full  before:h-[1px] before:bg-[#DDDDDD] fade-in-up">
+              {% render 'icon-open-quotes', custom_class:'rotate-180'%}
+            </div>
+            <div class="quote-author fade-in-up">
+              <p class="text-[20px] leading-[15px] text-[var(--color-darkgray)] font-bold uppercase mb-4">{{section.settings.author | default :"Author name"}}</p>
+              <p class="text-lg tracking-wide leading-[15px] uppercase">{{section.settings.role | default: "Role"}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Featured Testimonial",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "legend",
+      "label": "Legend",
+      "default": "Example Legend"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author",
+      "default": "Author"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "label": "Role",
+      "default": "Role"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Code In Shopify Section"
+    }
+  ]
+}  
+{% endschema %}

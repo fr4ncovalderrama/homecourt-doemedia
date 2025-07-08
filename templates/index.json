@@ -1,0 +1,265 @@
+{
+  "sections": {
+    "hero_xwKCVY": {
+      "type": "hero",
+      "blocks": {
+        "legend_ycHaPL": {
+          "type": "legend",
+          "settings": {
+            "legend": "Luxury homecare gifts"
+          }
+        },
+        "title_JEJYUJ": {
+          "type": "title",
+          "settings": {
+            "title": "<p>SceNt With INteNtioN<\/p>"
+          }
+        },
+        "description_i9FKMt": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Whether you're thanking clients, welcoming new hires, or celebrating milestones, our curated gift sets offer a refined blend of beauty, fragrance, and function—crafted to elevate every space they touch.<\/p>"
+          }
+        },
+        "button_7yRjeD": {
+          "type": "button",
+          "settings": {
+            "label": "Inquire now",
+            "link": "\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "legend_ycHaPL",
+        "title_JEJYUJ",
+        "description_i9FKMt",
+        "button_7yRjeD"
+      ],
+      "name": "Hero Section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/scent-with-intention.webp"
+      }
+    },
+    "process_cjre86": {
+      "type": "process",
+      "blocks": {
+        "step_KWkyiP": {
+          "type": "step",
+          "settings": {
+            "title": "Choose your gift set",
+            "text": "Select from our curated bundles or build a custom assortment—perfect for clients, new hires, or team celebrations. Each set is thoughtfully composed with our most loved luxury homecare products."
+          }
+        },
+        "step_WCKaD9": {
+          "type": "step",
+          "settings": {
+            "title": "Add Your Personal Touch",
+            "text": "Include a note, custom ribbon, or branded card. Every detail can be tailored to reflect your company’s voice and values."
+          }
+        },
+        "step_LRmpNM": {
+          "type": "step",
+          "settings": {
+            "title": "Gifts That Arrive Ready to Impress",
+            "text": "Each order is hand-packed with care, beautifully boxed, and shipped directly to your recipients. No extra wrapping needed—just a perfect unboxing experience, every time."
+          }
+        },
+        "step_9dCPcc": {
+          "type": "step",
+          "settings": {
+            "title": "Cleaner Gifting for a Cleaner Planet",
+            "text": "Every product is made with non-toxic, vegan, and cruelty-free ingredients—formulated with organic fragrance oils and consciously packaged."
+          }
+        }
+      },
+      "block_order": [
+        "step_KWkyiP",
+        "step_WCKaD9",
+        "step_LRmpNM",
+        "step_9dCPcc"
+      ],
+      "name": "The Process",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/More_than_a_gift.webp",
+        "legend": "How it works",
+        "title": "MorE Than a Gift. It’s a GesTurE.",
+        "text": "Leave a lasting impression with homecare gifts that speak volumes—crafted with intention, clean formulations, and custom fragrance blends."
+      }
+    },
+    "value-proposition": {
+      "type": "value-proposition",
+      "blocks": {
+        "column_NbY3a3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image.webp",
+            "title": "Signature Fragrance Experience",
+            "text": "World-renowned perfumers, our scents elevate daily rituals into sensory moments."
+          }
+        },
+        "column_MAgrGG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image-1.webp",
+            "title": "Clean & Conscious",
+            "text": "Non-toxic, vegan, cruelty-free, and packaged with sustainability in mind."
+          }
+        },
+        "column_dbLnr7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image-2.webp",
+            "title": "Premium Formulations",
+            "text": "From our surface cleaner to hand cream, each product is powered by organic ingredients."
+          }
+        },
+        "column_GFzEUV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image-3.webp",
+            "title": "Quality at the Core",
+            "text": "Meeting highest standards: organic, non-toxic, made for design-conscious homes."
+          }
+        }
+      },
+      "block_order": [
+        "column_NbY3a3",
+        "column_MAgrGG",
+        "column_dbLnr7",
+        "column_GFzEUV"
+      ],
+      "settings": {
+        "legend": "Why Choose Homecourt",
+        "title": "Elevating Everyday Routines",
+        "text": ""
+      }
+    },
+    "image_banner_qwpAQb": {
+      "type": "image-banner",
+      "blocks": {
+        "legend_PhU3AV": {
+          "type": "legend",
+          "settings": {
+            "legend": "Gifting with Purpose"
+          }
+        },
+        "title_B8jgTg": {
+          "type": "title",
+          "settings": {
+            "title": "SignaturE GIFTS. TimelEss ImprEssioNs."
+          }
+        },
+        "description_PjAfYq": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Each <strong>Homecourt<\/strong> set is more than a gesture, it’s a <strong>fragrant reflection<\/strong> of your brand’s care, crafted with clean ingredients, luxury formulations, and deep intention.<br\/><br\/><\/p>"
+          }
+        },
+        "button_Nrn6nM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Inquire now",
+            "button_link": "\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "legend_PhU3AV",
+        "title_B8jgTg",
+        "description_PjAfYq",
+        "button_Nrn6nM"
+      ],
+      "name": "Image Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Signatuer_gifts.webp"
+      }
+    },
+    "featured_collection_yAUE4y": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "frontpage",
+        "legend": "Best-Selling Sets",
+        "title": "DiscOveR our beSt-selLing sets for home and body."
+      }
+    },
+    "customer_reviews_PE88mx": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_WGaw4g": {
+          "type": "review",
+          "settings": {
+            "author": "Sophie M.",
+            "title": "Elegance in Every Drop",
+            "description": "I ordered the rose-steeped dishwashing liquid, hand soap, and surface cleaner. Everything looks and smells amazing!",
+            "date": "24.02.2023",
+            "stars": 5
+          }
+        },
+        "review_wNy6bU": {
+          "type": "review",
+          "settings": {
+            "author": "Daniel R.",
+            "title": "Makes Cleaning a Joy",
+            "description": "Didn’t think I’d ever be excited about dish soap, but here we are. Beautiful packaging and scent.",
+            "date": "02.03.2023",
+            "stars": 4
+          }
+        },
+        "review_rYHDpj": {
+          "type": "review",
+          "settings": {
+            "author": "Carla S.",
+            "title": "So Worth It!",
+            "description": "These products make my kitchen feel like a spa. They lift my spirits every time I use them.",
+            "date": "15.04.2023",
+            "stars": 5
+          }
+        },
+        "review_kUcLai": {
+          "type": "review",
+          "settings": {
+            "author": "Luis F.",
+            "title": "Stylish and Effective",
+            "description": "They look great on the counter and perform better than most supermarket brands I’ve tried.",
+            "date": "29.05.2023",
+            "stars": 4
+          }
+        }
+      },
+      "block_order": [
+        "review_WGaw4g",
+        "review_wNy6bU",
+        "review_rYHDpj",
+        "review_kUcLai"
+      ],
+      "name": "Customer Reviews",
+      "settings": {
+        "legend": "customer reviews",
+        "title": "<p>same joy, diffeRenT peoplE<br\/><br\/><\/p>",
+        "background_image": "shopify:\/\/shop_images\/review_brackkgorund.webp"
+      }
+    },
+    "featured_testimony_ifHyHd": {
+      "type": "featured-testimonial",
+      "name": "Featured testimonial",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/corutney.webp",
+        "legend": "LETTER FROM COURTENEY",
+        "quote": "<p>I wanted to create something that not only works but looks beautiful on your counter. Homecourt is about elevating everyday routines into something special.<\/p>",
+        "description": "<p>Leave a lasting impression with homecare gifts that speak volumes—crafted with intention, clean formulations, and custom fragrance blends.  Leave a lasting impression with homecare gifts that speak volumes—crafted with intention, clean formulations, and custom fragrance blends.  <\/p>",
+        "author": "Courteney Cox",
+        "role": "founder of the homecourt"
+      }
+    }
+  },
+  "order": [
+    "hero_xwKCVY",
+    "process_cjre86",
+    "value-proposition",
+    "image_banner_qwpAQb",
+    "featured_collection_yAUE4y",
+    "customer_reviews_PE88mx",
+    "featured_testimony_ifHyHd"
+  ]
+}

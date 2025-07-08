@@ -1,0 +1,188 @@
+
+{% assign image = section.settings.background_image %}
+
+<div class="customer-reviews relative py-16 bg-[#2A4835] z-[-1]" >
+    <div class="custom-reviews__media pointer-events-none w-full h-fit absolute top-0 z-[-1] before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_top,var(--bg-foreground),transparent)]">
+        {% if image != blank %}
+            {{ image | image_url: width: image.width | image_tag: class: 'pointer-events-none block w-full h-full max-h-[420px] group-hover:scale-105 transition duration-300', loading: 'lazy' }}
+        {% endif %}
+        
+    </div>
+    <div class="customer-reviews__header w-full max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] flex justify-between items-center md:items-end mb-14 flex-col lg:flex-row gap-4">
+        <div class="headings text-white max-w-3xl w-f ">
+            <p class="text-lg leading-[15px] uppercase mb-7 text-center md:text-left fade-in-up">{{ section.settings.legend }}</p>
+            <h2 class="text-[58px] leading-[58px] lg:text-[70px] lg:leading-[70px] text-center md:text-left text-balance uppercase fade-in-up">{{ section.settings.title | default: "Write a standout title." | strip_html}}</h2>
+        </div>
+        <div class="customer-review__summary flex justify-end items-end gap-4 fade-in-up">
+            <p class="secondary-heading text-[70px] leading-[70px] text-[var(--color-white)]">5.0</p>
+            <div class="summary_content mb-[5px]">
+              <div class="review-stars flex gap-0.5 mb-2">
+                {% for i in (1..5)%}
+                      {% render 'icon-star' %}
+                  {% endfor %}
+              </div>
+              <p class="secondary-heading text-xl text-[var(--color-white)]">STARS OF 3,545 REVIEWS</p>
+            </div>
+        </div>
+    </div>
+    <ul class="flex gap-5 overflow-hidden justify-center">
+    {%- for block in section.blocks -%}
+        {%- case block.type -%}
+            {%- when 'review' -%}
+            <li class="review px-10 py-8 bg-white flex flex-col gap-5 shrink-0 max-w-[560px] fade-in-up">
+                <div class="review__header flex justify-between">
+                    <div class="flex flex-col">
+                        <div class="review-author flex gap-2.5 mb-2">
+                            <p class="author secondary-heading text-xl text-[var(--color-black)]">{{ block.settings.author }}</p>
+                            <p class="verified flex gap-1 items-center text-sm font-medium">{% render 'icon-verified' %} <span class="mb-[-2px]">VERIFIED</span></p>
+                        </div>
+                        <div class="review-stars flex gap-0.5">
+                            {% for i in (1..block.settings.stars)%}
+                                {% render 'icon-star' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        {% render 'icon-quote-2' %}
+                    </div>
+
+                </div>
+                <div class="review__content flex-grow">
+                    <p class="review-title secondary-heading mb-5 text-2xl text-[var(--color-black)]">{{ block.settings.title }} </p>
+                    <p class="review-description text-lg leading-[1.3]">{{ block.settings.description }} </p>
+                </div>
+                <div class="review__footer flex justify-between items-center pt-5 border-t border-[#DDDDDD]">
+                    <p class="review-date text-[15px]">{{ block.settings.date }} </p>
+                    <div class="review-logo">
+                      {% assign image = settings.logo_black_image %}
+                      {% if settings.logo_black_image != blank %}  
+                        {{ image | image_url: width: image.width | image_tag: class: 'w-full max-w-[100px] h-full object-cover object-right', loading: 'lazy' }}
+                    {% else %}
+                        {{ shop.name }}
+                    {% endif %}
+                    </div>
+                </div>
+            </li>
+
+
+        {%- endcase -%} 
+    {%- endfor -%}
+    </ul>
+
+    <div class="customer-reviews__footer max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] mt-11 ">
+        <div class="buttons flex justify-center fade-in-up">
+            <a class="text-lg font-bold text-[var(--color-foreground)] py-4 px-11 bg-[var(--bg-white)] uppercase hover:scale-102 transition" href="#">SEE ALL REVIEWS</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Customer Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "legend",
+      "label": "Legend",
+      "default": "Example legend"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+        {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Review",
+      "type": "review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Write a standout title."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "I ordered the rose- steeped dishwashing liquid, hand soap, and spray bottle with surface cleaner for the kitchen. The products are elegant looking, smell great and they lift my spirits each time they are used."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "24.02.2023"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author": "Sophie M.",
+            "title": "Elegance in Every Drop",
+            "description": "I ordered the rose-steeped dishwashing liquid, hand soap, and surface cleaner. Everything looks and smells amazing!",
+            "date": "24.02.2023",
+            "stars": 5
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Daniel R.",
+            "title": "Makes Cleaning a Joy",
+            "description": "Didn’t think I’d ever be excited about dish soap, but here we are. Beautiful packaging and scent.",
+            "date": "02.03.2023",
+            "stars": 4
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Carla S.",
+            "title": "So Worth It!",
+            "description": "These products make my kitchen feel like a spa. They lift my spirits every time I use them.",
+            "date": "15.04.2023",
+            "stars": 5
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Luis F.",
+            "title": "Stylish and Effective",
+            "description": "They look great on the counter and perform better than most supermarket brands I’ve tried.",
+            "date": "29.05.2023",
+            "stars": 4
+          }
+        }
+      ]
+    }
+  ]
+}  
+{% endschema %}

@@ -1,0 +1,142 @@
+
+{%- assign image = section.settings.image -%}
+
+<div class="hero h-[857px] relative pt-20">
+    <div class="hero__media w-full h-full absolute left-0 top-0 z-[-1]
+         before:absolute before:inset-0 before:bg-gradient-to-b before:from-black before:to-transparent before:z-[0] before:opacity-40">
+         {% if image != blank %}
+            {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-bottom', loading: 'eager' }}
+         {% else %}
+            <div class="placeholder bg-gray-200 w-full h-full"> 
+                {%  render 'image-placeholder', class="w-full h-full object-top object-cover" %}
+            </div>
+         {% endif %}
+
+    </div>
+    <div class="hero-wrapper w-full max-w-5xl mx-auto flex flex-col justify-center items-center z-10 text-white  py-15 px-2">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+        {%- when 'legend' -%}
+            <p class="text-lg fade-in-up text-[var(--color-white)] leading-[15px] uppercase mb-5">{{block.settings.legend}}</p>
+        {%- when 'title' -%}
+            <h2 class="w-full fade-in-up text-[64px] leading-[64px] lg:text-[90px] lg:leading-[110px] text-[var(--color-white)] text-center uppercase mb-4">{{ block.settings.title | strip_html}}</h2>
+        {%- when 'description' -%}
+            <p class="text-center fade-in-up text-base text-[var(--color-white)] leading[21px] max-w-3xl mb-8">{{ block.settings.description | strip_html }}</p>
+        {%- when 'button' -%}
+            <div class="buttons text-black fade-in-up">
+                <a class="flex bg-[var(--bg-white)] hover:scale-102 transition py-4 px-11 uppercase text-lg  " href="{{ block.settings.url }}">{{  block.settings.label}}</a>
+            </div>
+            {%- endcase -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Legend",
+      "type": "legend",
+      "settings": [
+        {
+          "type": "text",
+          "id": "legend",
+          "label": "Legend",
+          "default": "EXAMPLE LEGEND"
+        }
+      ]
+    },
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "name": "Description",
+      "type": "description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Shop all"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "legend",
+          "settings": {
+            "legend": "EXAMPLE LEGEND"
+          }
+        },
+        {
+          "type": "title",
+          "settings": {
+            "title": "<p><strong>Craft a Headline That Captivates</strong></p>"
+          }
+        },
+        {
+          "type": "description",
+          "settings": {
+            "description": "<p>This is just a simple example sentence made to fill space and show what real content might someday look like.</p>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Shop Now",
+            "link": "/collections/all"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

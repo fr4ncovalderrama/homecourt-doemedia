@@ -1,0 +1,106 @@
+<div class="process max-w-[1360px] mx-auto px-4 md:px-6 lg:px-[20px] grid lg:grid-cols-2 gap-5 py-12 md:py-24 md:grid-cols-1">
+    <div class="process__media bg-gray-200">
+        {% if section.settings.image != blank %}
+            {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: 'block w-full h-full group-hover:scale-105 transition duration-300 z-0', loading: 'lazy' }}
+        {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+        {% endif %}
+    </div>
+    <div class="process__content  lg:pl-6">
+        <div class="headings mb-7">
+            <p class="legend fade-in-up text-lg leading-[15px] uppercase mb-7 text-[var(--color-darkgray)]">{{ section.settings.legend }}</p>
+            <h2 class="fade-in-up text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase mb-6">{{ section.settings.title }}</h2>
+            <p class="fade-in-up text-lg leading-[22px] text-balance">{{ section.settings.text }}</p>
+        </div>
+        <ul class="process__list mb-14 flex flex-col gap-7">
+                {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                        {%- when 'step' -%}
+                            <li class="process__list-item fade-in-up flex gap-5">
+                                <div class="step flex flex-col gap-4 items-center after:content:[''] after:w-[1px] after:h-full after:bg-[var(--bg-foreground)]">
+                                  <span class="text-lg mt-0.5 leading-[15px] font-bold text-[var(--color-foreground)]">
+                                    {% if forloop.index != section.blocks.size %}
+                                      {{  forloop.index }}
+                                    {% else %}
+                                      {% render 'icon-hand-heart' %}
+                                    {% endif %}
+                                  </span> 
+                                </div>
+                                <div class="item__content">
+                                    <h3 class="secondary-heading capitalize text-[22px] text-[var(--color-foreground)]  leading-[21px] mb-4">{{ block.settings.title }}</h3>
+                                    <p class="text-lg leading-[23px] ">{{ block.settings.text }}</p>
+                                </div>
+                            </li>
+                    {%- endcase -%}
+                {%- endfor -%}
+
+        </ul>
+        <div class="buttons fade-in-up">
+            <a class="inline-flex text-lg leading-[21px] font-bold py-4 px-11 bg-[var(--color-foreground)] text-[var(--color-white)] uppercase hover:scale-102 transition" href="">Inquire Now</a>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "The Process",
+  "max_blocks": 6,
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image Picker",
+      "id": "image"
+    },
+    {
+      "type": "header",
+      "content": "Headings"
+    },
+    {
+      "type": "text",
+      "id": "legend",
+      "label": "Legend"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Step",
+      "type": "step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+           "default": "Write a title that stands out"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, quia" 
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "The Process"
+    }
+  ]
+}  
+{% endschema %}

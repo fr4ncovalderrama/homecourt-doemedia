@@ -1,0 +1,18 @@
+{
+  "name": "Footer group",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/scent-with-intention.webp",
+        "legend": "get in touch",
+        "title": "lEt’s makE it peRsoNal",
+        "description": "<p>Whether you're thanking clients, welcoming new hires, or celebrating milestones, our curated gift sets offer a refined blend of beauty, fragrance, and function—crafted to elevate every space they touch.<br\/><br\/><\/p>"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

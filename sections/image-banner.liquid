@@ -1,0 +1,148 @@
+
+{% assign image = section.settings.image %}
+
+<div class="image-banner relative max-h-[566px] min-h-[566px]  flex items-center text-white
+  after:content-[''] after:absolute after:inset-0 after:bg-[var(--bg-foreground)] after:opacity-70 after:mix-blend-multiply md:after:hidden">
+    <div class="image-banner__media absolute flex w-full h-full z-[-1]">
+        {% if image != blank %}
+            {{ image | image_url: width: image.width | image_tag: class: 'w-full h-full object-cover object-right', loading: 'lazy' }}
+        {% else %}
+            <div class="placeholder bg-gray-200 w-full h-full"></div>
+        {% endif %}
+    </div>
+    <div class="w-full max-w-[1360px]  px-4 md:px-6 lg:px-[20px] mx-auto flex items-center">
+      <div class="w-full image-banner__content z-1 max-w-3xl ">
+          {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                  {%- when 'legend' -%}
+                    <p class="text-lg leading-[15px] text-[var(--color-white)] uppercase mb-7 fade-in-up">{{ block.settings.legend }} </p>
+                  {%- when 'title' -%}
+                    <h2 class="text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-balance text-[var(--color-white)] uppercase mb-8 fade-in-up">{{ block.settings.title }}</h2>
+                  {%- when 'description' -%}
+                    <p class="description txt-lg leading-6 mb-8 text-[var(--color-white)] opacity-80 text-balance fade-in-up">{{ block.settings.description | strip_html }}</p>
+    
+                  {%- when 'button' -%}
+                    <div class="buttons fade-in-up ">
+                      <a class="inline-flex py-4 px-11 bg-[var(--bg-white)] text-[var(--color-black)] font-bold uppercase hover:scale-102 transition" href="{{ block.settings.button_link }}">{{ block.settings.button_label }} </a>
+                    </div>
+                  
+
+              {%- endcase -%}
+          {%- endfor -%}
+      </div>
+    </div>
+</div>
+
+
+
+
+
+{%- assign image = section.settings.image -%}
+
+
+
+{% schema %}
+  {
+  "name": "Image Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Legend",
+      "type": "legend",
+      "settings": [
+        {
+          "type": "text",
+          "id": "legend",
+          "label": "Legend"
+        }
+      ]
+    },
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Description",
+          "id": "description",
+          "default": "<p>Some text here</p>"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "button",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+"presets": [
+  {
+    "name": "Image Banner",
+    "blocks": [
+      {
+        "type": "legend",
+        "settings": {
+          "legend": "New Collection"
+        }
+      },
+      {
+        "type": "title",
+        "settings": {
+          "title": "Scent with Intention"
+        }
+      },
+      {
+        "type": "description",
+        "settings": {
+          "description": "<p>Discover our latest fragrance line crafted with purpose and elegance.</p>"
+        }
+      },
+      {
+        "type": "button",
+        "settings": {
+          "button_label": "Shop Now",
+          "button_link": "/collections/all"
+        }
+      }
+    ]
+  }
+]
+
+
+}  
+{% endschema %}
+

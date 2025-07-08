@@ -1,0 +1,123 @@
+
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+<div class="collection-list max-w-[1360px] mx-auto pb-24 px-4 md:px-6 lg:px-[20px] py-24 relative overflow-hidden">
+  
+    <img src="{{ 'ornament-left.png' | asset_url }}" alt="" width="233" height="113" class=" absolute left-[-60px] top-0 w-[170px] md:w-[233px] pointer-events-none select-none opacity-20" loading="lazy">
+    <img src="{{ 'ornament-right.png' | asset_url }}" width="233" height="113" alt="" class=" absolute right-[-20px] top-0 w-[150px] md:w-[233px] pointer-events-none select-none opacity-20" loading="lazy">
+
+    <div class="headings mb-8">
+        <p class="text-lg leading-[15px] text-[var(--color-darkgray)] uppercase mb-7 text-center fade-in-up">{{ section.settings.legend }}</p>
+        <h2 class="text-[48px] leading-[48px] lg:text-[70px] lg:leading-[70px] text-[var(--color-black)] uppercase mb-6 text-center text-balance fade-in-up">{{ section.settings.title }}</h2>
+    </div>
+    <div class="slider-{{ section.id }} relative fade-in-up">
+      <ul class="collection-list swiper mySwiper-{{ section.id }} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="swiper-wrapper">
+            {%- assign collection = section.settings.collection -%}
+            {%- assign collection_products = collection.products -%}
+        
+            {%- if collection_products.size > 0 -%}
+                {%- for product in collection_products -%}
+                  <div class="swiper-slide">
+                    {% render 'card-product', card_product: product %}
+                  </div>
+                {%- endfor -%}
+            {% else %}
+                {% for i in (1..4) %}
+                  {% render 'card-product' %}
+                {% endfor %}
+            {% endif %}
+          
+          </div>
+   
+        </ul>
+            <div class="swiper-custom-button-prev bg-[#FFFFFF33] backdrop-blur-[4px] rounded-3xl absolute p-2 md:left-[-28px] left-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:scale-115 transition">{% render 'icon-chevron-left' %}</div>
+            <div class="swiper-custom-button-next bg-[#FFFFFF33] backdrop-blur-[4px] rounded-3xl absolute p-2 md:right-[-28px] right-2 top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:scale-115" transition>{%render 'icon-chevron-right' %}</div>
+
+      </div>
+</div>
+
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function initSwiperOnceAvailable() {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.mySwiper-{{ section.id }}', {
+          loop: true,
+          spaceBetween: 24,
+          slidesPerView: 1, 
+          slidesPerGroup: 1, 
+          autoplay:{
+            delay:5000,
+          },
+          navigation: {
+            nextEl: '.slider-{{ section.id }} .swiper-custom-button-next',
+            prevEl: '.slider-{{ section.id }} .swiper-custom-button-prev',
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 4,
+            }
+          }
+        });
+      } else {
+        setTimeout(initSwiperOnceAvailable, 50);
+      }
+    }
+
+    // Load Swiper script only once
+    if (!window.Swiper) {
+      const script = document.createElement('script');
+      script.src = '{{ "swiper-bundle.min.js" | asset_url }}';
+      script.onload = initSwiperOnceAvailable;
+      document.body.appendChild(script);
+    } else {
+      initSwiperOnceAvailable();
+    }
+  });
+</script>
+
+
+{% schema %}
+  {
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "legend",
+      "label": "Legend",
+      "default": "Insert legend"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Write a title that stands out"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+}  
+{% endschema %}
