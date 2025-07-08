@@ -24,7 +24,7 @@
             <p class="text-center fade-in-up text-base text-[var(--color-white)] leading[21px] max-w-3xl mb-8">{{ block.settings.description | strip_html }}</p>
         {%- when 'button' -%}
             <div class="buttons text-black fade-in-up">
-                <a class="flex bg-[var(--bg-white)] hover:scale-102 transition py-4 px-11 uppercase text-lg  " href="{{ block.settings.url }}">{{  block.settings.label}}</a>
+                <a class="flex bg-[var(--bg-white)] hover:scale-102 transition py-4 px-11 uppercase text-lg" href="{{ block.settings.link }}">{{  block.settings.label}}</a>
             </div>
             {%- endcase -%}
         {%- endfor -%}

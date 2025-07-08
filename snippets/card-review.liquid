@@ -1,0 +1,35 @@
+ 
+ <li class="review px-10 py-8 bg-white flex flex-col gap-5 shrink-0  max-w-[560px] fade-in-up ">
+                <div class="review__header flex justify-between">
+                    <div class="flex flex-col">
+                        <div class="review-author flex gap-2.5 mb-2">
+                            <p class="author secondary-heading text-xl text-[var(--color-black)]">{{ author }}</p>
+                            <p class="verified flex gap-1 items-center text-sm font-medium">{% render 'icon-verified' %} <span class="mb-[-2px]">VERIFIED</span></p>
+                        </div>
+                        <div class="review-stars flex gap-0.5">
+                            {% for i in (1..stars)%}
+                                {% render 'icon-star' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        {% render 'icon-quote-2' %}
+                    </div>
+
+                </div>
+                <div class="review__content flex-grow">
+                    <p class="review-title secondary-heading mb-5 text-2xl text-[var(--color-black)]">{{ title }} </p>
+                    <p class="review-description text-lg leading-[1.3] text-wrap">{{ description }} </p>
+                </div>
+                <div class="review__footer flex justify-between items-center pt-5 border-t border-[#DDDDDD]">
+                    <p class="review-date text-[15px]">{{ date }} </p>
+                    <div class="review-logo">
+                      {% assign image = settings.logo_black_image %}
+                      {% if settings.logo_black_image != blank %}  
+                        {{ image | image_url: width: image.width | image_tag: class: 'w-full max-w-[100px] h-full object-cover object-right', loading: 'lazy' }}
+                    {% else %}
+                        {{ shop.name }}
+                    {% endif %}
+                    </div>
+                </div>
+            </li>

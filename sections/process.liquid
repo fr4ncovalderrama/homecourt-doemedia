@@ -36,7 +36,7 @@
 
         </ul>
         <div class="buttons fade-in-up">
-            <a class="inline-flex text-lg leading-[21px] font-bold py-4 px-11 bg-[var(--color-foreground)] text-[var(--color-white)] uppercase hover:scale-102 transition" href="">Inquire Now</a>
+            <a class="inline-flex text-lg leading-[21px] font-bold py-4 px-11 bg-[var(--color-foreground)] text-[var(--color-white)] uppercase hover:scale-102 transition" href="{{ section.settings.link }}">Inquire Now</a>
         </div>
     </div>
 </div>
@@ -75,6 +75,11 @@
       "type": "textarea",
       "id": "text",
       "label": "Text"
+    },
+        {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
     }
   ],
   "blocks": [

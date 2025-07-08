@@ -25,7 +25,7 @@
           "type": "button",
           "settings": {
             "label": "Inquire now",
-            "link": "\/collections\/all"
+            "link": "#inquiry_form"
           }
         }
       },
@@ -83,7 +83,8 @@
         "image": "shopify:\/\/shop_images\/More_than_a_gift.webp",
         "legend": "How it works",
         "title": "MorE Than a Gift. It’s a GesTurE.",
-        "text": "Leave a lasting impression with homecare gifts that speak volumes—crafted with intention, clean formulations, and custom fragrance blends."
+        "text": "Leave a lasting impression with homecare gifts that speak volumes—crafted with intention, clean formulations, and custom fragrance blends.",
+        "link": "#inquiry_form"
       }
     },
     "value-proposition": {
@@ -159,7 +160,7 @@
           "type": "button",
           "settings": {
             "button_label": "Inquire now",
-            "button_link": "\/collections\/all"
+            "button_link": "#inquiry_form"
           }
         }
       },
@@ -191,7 +192,7 @@
           "settings": {
             "author": "Sophie M.",
             "title": "Elegance in Every Drop",
-            "description": "I ordered the rose-steeped dishwashing liquid, hand soap, and surface cleaner. Everything looks and smells amazing!",
+            "description": "I ordered the rose- steeped dishwashing liquid, hand soap, and spray bottle with surface cleaner for the kitchen. The products are elegant looking, smell great and they lift my spirits each time they are used.",
             "date": "24.02.2023",
             "stars": 5
           }
@@ -201,7 +202,7 @@
           "settings": {
             "author": "Daniel R.",
             "title": "Makes Cleaning a Joy",
-            "description": "Didn’t think I’d ever be excited about dish soap, but here we are. Beautiful packaging and scent.",
+            "description": "I ordered the rose- steeped dishwashing liquid, hand soap, and spray bottle with surface cleaner for the kitchen. The products are elegant looking, smell great and they lift my spirits each time they are used.",
             "date": "02.03.2023",
             "stars": 4
           }
@@ -211,7 +212,7 @@
           "settings": {
             "author": "Carla S.",
             "title": "So Worth It!",
-            "description": "These products make my kitchen feel like a spa. They lift my spirits every time I use them.",
+            "description": "I ordered the rose- steeped dishwashing liquid, hand soap, and spray bottle with surface cleaner for the kitchen. The products are elegant looking, smell great and they lift my spirits each time they are used.",
             "date": "15.04.2023",
             "stars": 5
           }
@@ -221,7 +222,7 @@
           "settings": {
             "author": "Luis F.",
             "title": "Stylish and Effective",
-            "description": "They look great on the counter and perform better than most supermarket brands I’ve tried.",
+            "description": "I ordered the rose- steeped dishwashing liquid, hand soap, and spray bottle with surface cleaner for the kitchen. The products are elegant looking, smell great and they lift my spirits each time they are used.",
             "date": "29.05.2023",
             "stars": 4
           }
@@ -237,7 +238,8 @@
       "settings": {
         "legend": "customer reviews",
         "title": "<p>same joy, diffeRenT peoplE<br\/><br\/><\/p>",
-        "background_image": "shopify:\/\/shop_images\/review_brackkgorund.webp"
+        "background_image": "shopify:\/\/shop_images\/review_brackkgorund.webp",
+        "link": "#inquiry_form"
       }
     },
     "featured_testimony_ifHyHd": {
